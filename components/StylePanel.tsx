@@ -33,10 +33,10 @@ export const StylePanel: React.FC<StylePanelProps> = ({ style, onChange }) => {
 
 
   const presetThemes = [
-    { name: '簡約白', bg: '#ffffff', text: '#1e293b' },
-    { name: '護眼米', bg: '#fefce8', text: '#422006' },
-    { name: '森林綠', bg: '#f0fdf4', text: '#14532d' },
-    { name: '少女粉', bg: '#fff1f2', text: '#881337' },
+    { name: '簡約白 ⚪', bg: '#ffffff', text: '#1e293b' },
+    { name: '護眼米 👁️', bg: '#fefce8', text: '#422006' },
+    { name: '森林綠 🌲', bg: '#f0fdf4', text: '#14532d' },
+    { name: '少女粉 🌸', bg: '#fff1f2', text: '#881337' },
   ];
 
   const fontOptions = [
@@ -49,7 +49,7 @@ export const StylePanel: React.FC<StylePanelProps> = ({ style, onChange }) => {
   return (
     <div className="space-y-6 p-6 bg-white rounded-xl shadow-sm border border-slate-100 h-full overflow-y-auto max-h-[calc(100vh-200px)] no-scrollbar">
       <h2 className="text-xl font-bold text-slate-800 flex items-center gap-2">
-        <i className="fas fa-paint-brush text-brand-600"></i> 風格設計
+        <i className="fas fa-paint-brush text-brand-600"></i> 風格設計 🎨
       </h2>
 
       {/* Basic Text Info */}

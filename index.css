@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Safe area handling for PWA */
+body {
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-top: env(safe-area-inset-top);
+  background-color: #f8fafc; /* match slate-50 */
+}
+
+/* Ensure full height */
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
