@@ -32,15 +32,15 @@ export const ConfigPanel: React.FC<ConfigPanelProps> = ({ settings, onChange }) 
 
         {/* 1. Paper Size */}
         <div>
-          <label className="block text-sm font-medium text-slate-700 mb-1">1. 紙張規格 📏</label>
+          <label className="block text-sm font-medium text-slate-700 mb-1">1. 紙張規格</label>
           <select
             className="w-full p-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 outline-none"
             value={settings.paperSize}
             onChange={(e) => handleChange('paperSize', e.target.value)}
           >
-            <option value={PaperSize.P4x6}>4x6 明信片 📮 (10x14.8cm，適用7-11 ibon)</option>
-            <option value={PaperSize.A5}>A5 📖 (14.8x21cm)</option>
-            <option value={PaperSize.A4}>A4 📄 (21x29.7cm)</option>
+            <option value={PaperSize.P4x6}>4x6 明信片 (10x14.8cm，適用7-11 ibon)</option>
+            <option value={PaperSize.A5}>A5 (14.8x21cm)</option>
+            <option value={PaperSize.A4}>A4 (21x29.7cm)</option>
           </select>
         </div>
 

@@ -47,9 +47,9 @@ export const StylePanel: React.FC<StylePanelProps> = ({ style, onChange }) => {
   ];
 
   return (
-    <div className="space-y-6 p-6 bg-white rounded-xl shadow-sm border border-slate-100 h-full overflow-y-auto max-h-[calc(100vh-200px)] no-scrollbar">
+    <div className="space-y-6 p-6 bg-white rounded-xl shadow-sm border border-slate-100 h-full overflow-y-auto max-h-[calc(100vh-200px)] no-scrollbar pb-24">
       <h2 className="text-xl font-bold text-slate-800 flex items-center gap-2">
-        <i className="fas fa-paint-brush text-brand-600"></i> 風格設計 🎨
+        <i className="fas fa-paint-brush text-brand-600"></i> 風格設計
       </h2>
 
       {/* Basic Text Info */}
