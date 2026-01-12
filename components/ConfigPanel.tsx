@@ -104,8 +104,8 @@ export const ConfigPanel: React.FC<ConfigPanelProps> = ({ settings, onChange }) 
               value={settings.orderType}
               onChange={(e) => handleChange('orderType', e.target.value)}
             >
-              <option value={OrderType.OT_Start}>標準順序 (創世記 -> 啟示錄)</option>
-              <option value={OrderType.NT_Start}>新約優先 (馬太福音 -> 舊約)</option>
+              <option value={OrderType.OT_Start}>標準順序 (創世記 → 啟示錄)</option>
+              <option value={OrderType.NT_Start}>新約優先 (馬太福音 → 舊約)</option>
               <option value={OrderType.Custom}>指定書卷開始</option>
             </select>
           
