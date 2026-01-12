@@ -1,0 +1,5 @@
+{
+  "name": "Bible Plan Builder",
+  "description": "A customizable Bible reading plan generator with AI-powered styles, supporting 4x6, A5, and A4 print formats.",
+  "requestFramePermissions": []
+}

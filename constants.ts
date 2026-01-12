@@ -1,0 +1,82 @@
+import { BibleBook, PaperSize } from './types';
+
+// Simplified Bible Data (Protestant 66 Books) with Abbreviations
+export const BIBLE_BOOKS: BibleBook[] = [
+  { name: '創世記', abbr: '創', chapters: 50, isOT: true },
+  { name: '出埃及記', abbr: '出', chapters: 40, isOT: true },
+  { name: '利未記', abbr: '利', chapters: 27, isOT: true },
+  { name: '民數記', abbr: '民', chapters: 36, isOT: true },
+  { name: '申命記', abbr: '申', chapters: 34, isOT: true },
+  { name: '約書亞記', abbr: '書', chapters: 24, isOT: true },
+  { name: '士師記', abbr: '士', chapters: 21, isOT: true },
+  { name: '路得記', abbr: '得', chapters: 4, isOT: true },
+  { name: '撒母耳記上', abbr: '撒上', chapters: 31, isOT: true },
+  { name: '撒母耳記下', abbr: '撒下', chapters: 24, isOT: true },
+  { name: '列王紀上', abbr: '王上', chapters: 22, isOT: true },
+  { name: '列王紀下', abbr: '王下', chapters: 25, isOT: true },
+  { name: '歷代志上', abbr: '代上', chapters: 29, isOT: true },
+  { name: '歷代志下', abbr: '代下', chapters: 36, isOT: true },
+  { name: '以斯拉記', abbr: '拉', chapters: 10, isOT: true },
+  { name: '尼希米記', abbr: '尼', chapters: 13, isOT: true },
+  { name: '以斯帖記', abbr: '斯', chapters: 10, isOT: true },
+  { name: '約伯記', abbr: '伯', chapters: 42, isOT: true },
+  { name: '詩篇', abbr: '詩', chapters: 150, isOT: true },
+  { name: '箴言', abbr: '箴', chapters: 31, isOT: true },
+  { name: '傳道書', abbr: '傳', chapters: 12, isOT: true },
+  { name: '雅歌', abbr: '歌', chapters: 8, isOT: true },
+  { name: '以賽亞書', abbr: '賽', chapters: 66, isOT: true },
+  { name: '耶利米書', abbr: '耶', chapters: 52, isOT: true },
+  { name: '耶利米哀歌', abbr: '哀', chapters: 5, isOT: true },
+  { name: '以西結書', abbr: '結', chapters: 48, isOT: true },
+  { name: '但以理書', abbr: '但', chapters: 12, isOT: true },
+  { name: '何西阿書', abbr: '何', chapters: 14, isOT: true },
+  { name: '約珥書', abbr: '珥', chapters: 3, isOT: true },
+  { name: '阿摩司書', abbr: '摩', chapters: 9, isOT: true },
+  { name: '俄巴底亞書', abbr: '俄', chapters: 1, isOT: true },
+  { name: '約拿書', abbr: '拿', chapters: 4, isOT: true },
+  { name: '彌迦書', abbr: '彌', chapters: 7, isOT: true },
+  { name: '那鴻書', abbr: '鴻', chapters: 3, isOT: true },
+  { name: '哈巴谷書', abbr: '哈', chapters: 3, isOT: true },
+  { name: '西番雅書', abbr: '番', chapters: 3, isOT: true },
+  { name: '哈該書', abbr: '該', chapters: 2, isOT: true },
+  { name: '撒迦利亞書', abbr: '亞', chapters: 14, isOT: true },
+  { name: '瑪拉基書', abbr: '瑪', chapters: 4, isOT: true },
+  // New Testament
+  { name: '馬太福音', abbr: '太', chapters: 28, isOT: false },
+  { name: '馬可福音', abbr: '可', chapters: 16, isOT: false },
+  { name: '路加福音', abbr: '路', chapters: 24, isOT: false },
+  { name: '約翰福音', abbr: '約', chapters: 21, isOT: false },
+  { name: '使徒行傳', abbr: '徒', chapters: 28, isOT: false },
+  { name: '羅馬書', abbr: '羅', chapters: 16, isOT: false },
+  { name: '哥林多前書', abbr: '林前', chapters: 16, isOT: false },
+  { name: '哥林多後書', abbr: '林後', chapters: 13, isOT: false },
+  { name: '加拉太書', abbr: '加', chapters: 6, isOT: false },
+  { name: '以弗所書', abbr: '弗', chapters: 6, isOT: false },
+  { name: '腓立比書', abbr: '腓', chapters: 4, isOT: false },
+  { name: '歌羅西書', abbr: '西', chapters: 4, isOT: false },
+  { name: '帖撒羅尼迦前書', abbr: '帖前', chapters: 5, isOT: false },
+  { name: '帖撒羅尼迦後書', abbr: '帖後', chapters: 3, isOT: false },
+  { name: '提摩太前書', abbr: '提前', chapters: 6, isOT: false },
+  { name: '提摩太後書', abbr: '提後', chapters: 4, isOT: false },
+  { name: '提多書', abbr: '多', chapters: 3, isOT: false },
+  { name: '腓利門書', abbr: '門', chapters: 1, isOT: false },
+  { name: '希伯來書', abbr: '來', chapters: 13, isOT: false },
+  { name: '雅各書', abbr: '雅', chapters: 5, isOT: false },
+  { name: '彼得前書', abbr: '彼前', chapters: 5, isOT: false },
+  { name: '彼得後書', abbr: '彼後', chapters: 3, isOT: false },
+  { name: '約翰一書', abbr: '約一', chapters: 5, isOT: false },
+  { name: '約翰二書', abbr: '約二', chapters: 1, isOT: false },
+  { name: '約翰三書', abbr: '約三', chapters: 1, isOT: false },
+  { name: '猶大書', abbr: '猶', chapters: 1, isOT: false },
+  { name: '啟示錄', abbr: '啟', chapters: 22, isOT: false },
+];
+
+export const TOTAL_CHAPTERS = 1189;
+
+// Dimensions in pixels at ~300 DPI for high quality export, 
+// but we will scale them down with CSS for preview.
+export const PAPER_DIMENSIONS: Record<PaperSize, { width: number; height: number; ratio: number }> = {
+  [PaperSize.P4x6]: { width: 1181, height: 1748, ratio: 1.48 }, // 100x148mm
+  [PaperSize.A5]:   { width: 1748, height: 2480, ratio: 1.414 }, // 148x210mm
+  [PaperSize.A4]:   { width: 2480, height: 3508, ratio: 1.414 }  // 210x297mm
+};
