@@ -183,6 +183,28 @@ export const StylePanel: React.FC<StylePanelProps> = ({ style, onChange }) => {
             />
             <span className="text-xs text-slate-500 w-8 text-right">{style.titleScale}x</span>
           </div>
+
+          <div className="flex items-center gap-2 mt-2">
+            <span className="text-xs text-slate-500 w-8">副標</span>
+            <input
+              type="range" min="0.5" max="2.0" step="0.1"
+              className="flex-1 accent-brand-600 h-1 bg-slate-300 rounded-lg appearance-none cursor-pointer"
+              value={style.subtitleScale ?? 1.0}
+              onChange={(e) => handleChange('subtitleScale', parseFloat(e.target.value))}
+            />
+            <span className="text-xs text-slate-500 w-8 text-right">{style.subtitleScale ?? 1.0}x</span>
+          </div>
+
+          <div className="flex items-center gap-2 mt-2">
+            <span className="text-xs text-slate-500 w-8">間距</span>
+            <input
+              type="range" min="0.0" max="10.0" step="0.5"
+              className="flex-1 accent-brand-600 h-1 bg-slate-300 rounded-lg appearance-none cursor-pointer"
+              value={style.subtitleGap ?? 1.0}
+              onChange={(e) => handleChange('subtitleGap', parseFloat(e.target.value))}
+            />
+            <span className="text-xs text-slate-500 w-8 text-right">{style.subtitleGap ?? 1.0}x</span>
+          </div>
         </div>
 
         {/* Content Settings */}

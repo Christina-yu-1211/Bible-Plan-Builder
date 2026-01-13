@@ -61,7 +61,9 @@ const App: React.FC = () => {
     markerStyle: MarkerStyle.Checkbox,
     titleScale: 1.0,
     contentScale: 1.0,
-    lineHeight: 1.2
+    lineHeight: 1.2,
+    subtitleScale: 1.0,
+    subtitleGap: 1.5
   });
 
   // Generic Export Logic

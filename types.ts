@@ -46,11 +46,11 @@ export interface ReadingDay {
 export interface PlanSettings {
   paperSize: PaperSize;
   timeFrame: TimeFrame;
-  
+
   // Date Settings
   startDate: string;
   endDate?: string; // Optional end date for DateRange mode
-  
+
   // Scope Settings
   scopeType: ScopeType;
   rangeStartBook: number; // Index 0-65
@@ -60,7 +60,7 @@ export interface PlanSettings {
   mode: PlanMode;
   chaptersPerDay: number;
   durationMonths: number;
-  
+
   // Order Settings
   orderType: OrderType;
   startBookIndex: number; // 0-65 (Used for OrderType.Custom in 'All' mode)
@@ -74,16 +74,20 @@ export interface StyleSettings {
   overlayOpacity: number; // 0.0 to 1.0
   title: string;
   subtitle?: string; // Custom subtitle text
-  
+
   // Visual Marker
   markerStyle: MarkerStyle;
-  
+
   // Advanced Text Styles
   titleColor?: string;
   titleScale: number; // Multiplier, e.g. 1.0
   contentColor?: string;
   contentScale: number; // Multiplier, e.g. 1.0
   lineHeight: number; // e.g. 1.2
+
+  // Subtitle Settings
+  subtitleScale?: number; // Multiplier, e.g. 1.0
+  subtitleGap?: number; // Multiplier, e.g. 1.0
 }
 
 export interface BibleBook {
