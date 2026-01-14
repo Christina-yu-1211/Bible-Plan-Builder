@@ -259,11 +259,15 @@ export const PreviewCanvas: React.FC<PreviewCanvasProps> = ({
     position: 'absolute',
     top: 0,
     left: 0,
-    transform: `scale(${scale})`,
+    transform: scale !== 1 ? `scale(${scale})` : 'none',
     transformOrigin: 'top left',
     fontFamily: styleSettings.fontFamily,
     boxSizing: 'border-box',
-    overflow: 'hidden'
+    overflow: 'hidden',
+    WebkitFontSmoothing: 'antialiased',
+    MozOsxFontSmoothing: 'grayscale',
+    textRendering: 'optimizeLegibility',
+    fontVariantNumeric: 'tabular-nums'
   };
 
   const bgImageStyle: React.CSSProperties = {
@@ -294,7 +298,7 @@ export const PreviewCanvas: React.FC<PreviewCanvasProps> = ({
 
   const gridStyle: React.CSSProperties = {
     display: 'grid',
-    gridTemplateColumns: `repeat(${pagination.layout.cols}, 1fr)`,
+    gridTemplateColumns: `repeat(${pagination.layout.cols}, ${pagination.layout.cellW}px)`,
     gridAutoRows: `${pagination.layout.cellH}px`,
     gap: `${pagination.layout.gap}px`,
     alignContent: 'start',
@@ -375,7 +379,8 @@ export const PreviewCanvas: React.FC<PreviewCanvasProps> = ({
                   lineHeight: 1.2,
                   letterSpacing: '0.05em',
                   color: styleSettings.titleColor || styleSettings.themeColor,
-                  marginTop: 0
+                  marginTop: 0,
+                  marginBottom: 0
                 }}>
                   {styleSettings.title || '讀經進度'}
                 </h1>
@@ -384,6 +389,7 @@ export const PreviewCanvas: React.FC<PreviewCanvasProps> = ({
                   fontWeight: 400,
                   opacity: 0.75,
                   marginTop: `${pagination.layout.subTitleGap}px`,
+                  marginBottom: 0,
                   color: styleSettings.titleColor || styleSettings.themeColor
                 }}>
                   {styleSettings.subtitle

@@ -90,7 +90,10 @@ const App: React.FC = () => {
         throw new Error("No pages found to export");
       }
 
-      // 3. Prepare dimensions for PDF
+      // 3. Ensure fonts are loaded
+      await document.fonts.ready;
+
+      // 4. Prepare dimensions for PDF
       const dim = PAPER_DIMENSIONS[planSettings.paperSize];
 
       // Convert pixels (300dpi ish) to mm for jsPDF
@@ -105,7 +108,6 @@ const App: React.FC = () => {
       let zip: JSZip | null = null;
 
       if (format === 'pdf') {
-        // Create PDF doc
         doc = new jsPDF({
           orientation: 'p',
           unit: 'mm',
@@ -113,34 +115,47 @@ const App: React.FC = () => {
           compress: true
         });
       } else {
-        // Create Zip
         zip = new JSZip();
       }
 
-      // 4. Iterate and Capture
+      // 5. Iterate and Capture
       for (let i = 0; i < pages.length; i++) {
         setExportProgress(`正在處理第 ${i + 1} / ${pages.length} 頁...`);
 
-        // Wait a tiny bit to let UI update
-        await new Promise(r => setTimeout(r, 10));
-
         const pageEl = pages[i] as HTMLElement;
+
+        // Force a layout refresh and wait a tiny bit
+        pageEl.style.display = 'block';
+        await new Promise(r => setTimeout(r, 100));
 
         const canvas = await html2canvas(pageEl, {
           scale: 2, // High resolution
           useCORS: true,
-          backgroundColor: styleSettings.backgroundColor
+          logging: false,
+          backgroundColor: styleSettings.backgroundColor,
+          width: dim.width,
+          height: dim.height,
+          windowWidth: dim.width,
+          windowHeight: dim.height,
+          onclone: (clonedDoc) => {
+            // Ensure the cloned element is visible and correctly styled
+            const clonedPage = clonedDoc.querySelector('.bible-plan-page-export') as HTMLElement;
+            if (clonedPage) {
+              clonedPage.style.display = 'block';
+              clonedPage.style.transform = 'none';
+              clonedPage.style.position = 'relative';
+              clonedPage.style.margin = '0';
+            }
+          }
         });
 
-        const imgData = canvas.toDataURL(format === 'pdf' ? 'image/jpeg' : `image/${format}`, 0.9);
+        const imgData = canvas.toDataURL(format === 'pdf' ? 'image/jpeg' : `image/${format}`, 0.95);
 
         if (format === 'pdf' && doc) {
           if (i > 0) doc.addPage(pdfFormat, 'p');
           doc.addImage(imgData, 'JPEG', 0, 0, pdfFormat[0], pdfFormat[1]);
         } else if (zip) {
-          // Remove header for zip blob
           const base64Data = imgData.split(',')[1];
-          // 0-pad the filename (page-01.jpg)
           const fileName = `page-${String(i + 1).padStart(2, '0')}.${format}`;
           zip.file(fileName, base64Data, { base64: true });
         }
